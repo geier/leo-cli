@@ -42,8 +42,8 @@ if __name__ == '__main__':
         if len(translations) > 1:
             print('\n%s:' % word)
         if translations[word]:
-            for trans in translations[word]:
-                print('%s\t\t%s' % trans)
+            max_len = max([len(trans) for trans, _ in translations[word]])
+            for trans, orig_word in translations[word]:
+                print(u'%s %s' % (trans.ljust(max_len), orig_word))
         else:
             print('\tno translation found...')
-
